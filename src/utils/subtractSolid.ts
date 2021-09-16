@@ -2,7 +2,6 @@ import {
   Mesh,
   BoxGeometry,
   TetrahedronGeometry,
-  OctahedronGeometry,
   DodecahedronGeometry,
   IcosahedronGeometry,
   Geometry,
@@ -14,6 +13,7 @@ import { PentagonalTrapezohedronGeometry } from '../models/pentagonalTrapezohedr
 import { isDiceOption } from '../models/dice'
 import { meshToPassableObject } from '../models/geometryGenerator'
 import { CrystalD4Geometry } from '../models/crystalD4'
+import { AdjustableOctahedronGeometry } from '../models/adjustableOctahedron'
 
 /**
  * This function takes in a die type and then starts off the process of subtracting all the faces (numbers and svgs)
@@ -55,12 +55,21 @@ export function subtractSolid(worker: Worker, die?: string): void {
         getGlobalState().d4CrystalPointHeight * globalScale,
       ),
     )
+  } else if (die === 'd4Shard') {
+    dieNumber = 4
+    mesh = new Mesh(
+      new AdjustableOctahedronGeometry(
+        size,
+        getGlobalState().d4ShardTopPointHeight,
+        getGlobalState().d4ShardBottomPointHeight,
+      ),
+    )
   } else if (die === 'd6') {
     dieNumber = 6
     mesh = new Mesh(new BoxGeometry(size, size, size))
   } else if (die === 'd8') {
     dieNumber = 8
-    mesh = new Mesh(new OctahedronGeometry(size))
+    mesh = new Mesh(new AdjustableOctahedronGeometry(size, getGlobalState().d8Height, getGlobalState().d8Height))
   } else if (die === 'd10' || die === 'd100') {
     dieNumber = 10
     mesh = new Mesh(new PentagonalTrapezohedronGeometry(size, getGlobalState().d10Height))
