@@ -6,9 +6,7 @@ import { ActionButton } from '../style'
 
 // Utils
 import { download, generateSTLFromMesh } from '../../../utils/downloader'
-
-// Web worker
-import { createRaw } from '../../../utils/createRaw' // eslint-disable-line import/no-webpack-loader-syntax
+import { createRaw } from '../../../utils/createRaw'
 
 type Props = {}
 

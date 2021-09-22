@@ -7,17 +7,12 @@ import { Checkbox, Modal, Row } from 'antd'
 import { ActionButton } from '../style'
 
 // Models
-import { GeometryGenerator } from '../../../models/geometryGenerator'
 import { DiceType, DIE_NAME } from '../../../models/dice'
 import { CheckboxChangeEvent } from 'antd/es/checkbox'
 
 // Utils
-import { download, generateSTL, generateSTLFromMesh } from '../../../utils/downloader'
-import { subtractSolid } from '../../../utils/subtractSolid'
-
-// Web Worker
-import Worker from 'worker-loader!../../../subtractSolid.worker'
-import { createRaw } from '../../../utils/createRaw' // eslint-disable-line import/no-webpack-loader-syntax
+import { download, generateSTLFromMesh } from '../../../utils/downloader'
+import { createRaw } from '../../../utils/createRaw'
 
 type Props = {}
 
