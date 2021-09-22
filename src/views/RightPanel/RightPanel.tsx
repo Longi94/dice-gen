@@ -2,7 +2,7 @@ import React from 'react'
 import { useGlobalState } from '../../modules/global'
 
 // Style
-import { RightPanelContainer, SectionContainer, ButtonContainer } from './style'
+import { RightPanelContainer, SectionContainer, ButtonContainer, ButtonContainerRow } from './style'
 import { Spacer } from '../style'
 
 // Components
@@ -14,6 +14,8 @@ import MassDownloader from './MassDownloader/MassDownloader'
 import SVGMenu from './SVGMenu/SVGMenu'
 import OrientationIndicatorMenu from './OrientationIndicatorMenu/OrientationIndicatorMenu'
 import FontOptions from './FontOptions/FontOptions'
+import RawDownloader from './RawDownloader/RawDownloader'
+import MassRawDownloader from './MassRawDownloader/MassRawDownloader'
 
 type Props = {}
 
@@ -48,9 +50,15 @@ const RightPanel: React.FC<Props> = () => {
           <h2>&nbsp;Die Settings:</h2>
           <DiceTabs />
           <ButtonContainer>
-            <PreviewButton />
-            <Downloader />
-            <MassDownloader />
+            <ButtonContainerRow>
+              <PreviewButton />
+              <Downloader />
+              <MassDownloader />
+            </ButtonContainerRow>
+            <ButtonContainerRow>
+              <RawDownloader />
+              <MassRawDownloader />
+            </ButtonContainerRow>
           </ButtonContainer>
         </>
       )}

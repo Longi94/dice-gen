@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const RightPanelContainer = styled.div<{ active: boolean; mobileActive: boolean }>`
-  margin: 50px 10px 60px 10px;
+  margin: 50px 10px 110px 10px;
   height: auto;
   width: 300px;
   background-color: rgba(28, 28, 28, 0.9);
@@ -50,6 +50,12 @@ export const ButtonContainer = styled.div`
   bottom: 0;
   display: flex;
   padding-bottom: 10px;
+  flex-direction: column;
+`
+
+export const ButtonContainerRow = styled.div`
+  width: 300px;
+  display: flex;
 `
 
 export const ActionButton = styled.div<{ rgbColor?: string }>`

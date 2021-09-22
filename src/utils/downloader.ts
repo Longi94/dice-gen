@@ -7,8 +7,11 @@ import JSZip from 'jszip'
  * @param geometry
  */
 export const generateSTL = (geometry: Geometry): string => {
+  return generateSTLFromMesh(new Mesh(geometry))
+}
+
+export const generateSTLFromMesh = (mesh: Mesh): string => {
   const exportScene = new Scene()
-  const mesh = new Mesh(geometry)
   mesh.material = new MeshStandardMaterial({ color: 0xacacac })
   exportScene.add(mesh)
 
