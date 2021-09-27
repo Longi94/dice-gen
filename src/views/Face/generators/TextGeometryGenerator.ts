@@ -1,4 +1,4 @@
-import { Font, Geometry, TextGeometryParameters } from 'three'
+import { Font, Geometry, TextGeometryParameters, Vector3 } from 'three'
 import { CombinedTextGeometry } from '../../../models/combinedTextGeometry'
 import { ORIENTATION_INDICATOR, OrientationIndicatorType } from '../../../models/orientationIndicator'
 import { addBarIndicator, addPeriodIndicator } from '../../../utils/addOrientationIndicator'
@@ -9,6 +9,7 @@ export const textGeometryGenerator = (
   globalScale: number,
   globalFontScale: number,
   globalDepth: number,
+  globalOneOffset: number,
   face: FaceType,
   dieFontScale: number,
   dieSize: number,
@@ -63,6 +64,11 @@ export const textGeometryGenerator = (
           orientationIndicatorSize,
           orientationIndicatorSpace,
         )
+    }
+    if (face.text === '1' && globalOneOffset >= 0) {
+      const bbox: Vector3 = new Vector3()
+      geometry.boundingBox.getSize(bbox)
+      geometry.translate(-globalOneOffset * bbox.x, 0, 0)
     }
   }
 

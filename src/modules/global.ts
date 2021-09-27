@@ -25,6 +25,7 @@ export type GlobalStateType = {
   globalScale: number
   globalDepth: number
   globalSVG: Record<string, SVGType>
+  globalOneOffset: number
 
   orientationIndicator: OrientationIndicatorType
   orientationIndicatorSize: number
@@ -56,6 +57,7 @@ const initialState: GlobalStateType = {
   globalScale: 1,
   globalDepth: 0.75,
   globalSVG: {},
+  globalOneOffset: 0,
 
   orientationIndicator: ORIENTATION_INDICATOR.PERIOD,
   orientationIndicatorSize: 1,

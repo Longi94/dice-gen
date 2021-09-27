@@ -43,6 +43,7 @@ const RightPanel: React.FC<Props> = () => {
             <ValueSlider label="Dice Scale:" stateKey="globalScale" min={0.1} max={3} step={0.1} />
             <ValueSlider label="Font Scale:" stateKey="globalFontScale" min={0.1} max={1} step={0.05} />
             <ValueSlider label="Symbol Depth (mm):" stateKey="globalDepth" min={0.25} max={5} step={0.25} />
+            <ValueSlider label="One Offset:" stateKey="globalOneOffset" min={0} max={1} step={0.001} />
             <Spacer />
             <OrientationIndicatorMenu />
             <SVGMenu />

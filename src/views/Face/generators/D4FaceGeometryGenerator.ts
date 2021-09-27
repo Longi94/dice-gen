@@ -1,4 +1,4 @@
-import { Font, Geometry, TextGeometry, TextGeometryParameters } from 'three'
+import { Font, Geometry, TextGeometry, TextGeometryParameters, Vector3 } from 'three'
 import { createSVGGeometry } from '../../../utils/createSVGGeometry'
 import { SVGType } from '../../../models/svg'
 
@@ -14,6 +14,7 @@ export const d4FaceGeometryGenerator = (
   globalScale: number,
   globalFontScale: number,
   globalDepth: number,
+  globalOneOffset: number,
   faceNum: number,
   globalSVG: Record<string, SVGType>,
   d4RadiusScale: number,
@@ -57,6 +58,13 @@ export const d4FaceGeometryGenerator = (
 
     if (d4FontBottom) currentGeometry.rotateZ(Math.PI)
     currentGeometry.center()
+
+    if (text === '1' && globalOneOffset >= 0) {
+      const bbox: Vector3 = new Vector3()
+      currentGeometry.boundingBox.getSize(bbox)
+      currentGeometry.translate(-globalOneOffset * bbox.x, 0, 0)
+    }
+
     currentGeometry.translate(0, radius, 0)
     currentGeometry.rotateZ(rotation)
 

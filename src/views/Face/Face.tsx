@@ -41,6 +41,7 @@ const Face: React.FC<Props> = ({ faceNum, dieSize, die }: Props) => {
   const [globalSVG] = useGlobalState('globalSVG')
   const [globalScale] = useGlobalState('globalScale')
   const [globalDepth] = useGlobalState('globalDepth')
+  const [globalOneOffset] = useGlobalState('globalOneOffset')
   const [d8Height] = useGlobalState('d8Height')
   const [d10Height] = useGlobalState('d10Height')
   const [d100FontVertical] = useGlobalState('d100FontVertical')
@@ -97,6 +98,7 @@ const Face: React.FC<Props> = ({ faceNum, dieSize, die }: Props) => {
     globalSVG,
     globalScale,
     globalDepth,
+    globalOneOffset,
     d8Height,
     d4ShardBottomPointHeight,
     d10Height,
@@ -135,6 +137,7 @@ const Face: React.FC<Props> = ({ faceNum, dieSize, die }: Props) => {
         globalScale,
         globalFontScale,
         globalDepth,
+        globalOneOffset,
         faceNum,
         globalSVG,
         d4RadiusScale,
@@ -154,6 +157,7 @@ const Face: React.FC<Props> = ({ faceNum, dieSize, die }: Props) => {
           globalScale,
           globalFontScale,
           globalDepth,
+          globalOneOffset,
           face,
           dieFontScale,
           dieSize,
@@ -173,6 +177,7 @@ const Face: React.FC<Props> = ({ faceNum, dieSize, die }: Props) => {
         globalScale,
         globalFontScale,
         globalDepth,
+        globalOneOffset,
         face,
         dieFontScale,
         dieSize,
@@ -211,6 +216,7 @@ const Face: React.FC<Props> = ({ faceNum, dieSize, die }: Props) => {
     globalScale,
     globalFontScale,
     globalDepth,
+    globalOneOffset,
     faceNum,
     globalSVG,
     d4RadiusScale,
